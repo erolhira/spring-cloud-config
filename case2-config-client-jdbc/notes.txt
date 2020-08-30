@@ -1,0 +1,5 @@
+http://localhost:8080/config
+http://localhost:8080/print
+
+refresh:
+curl -H "Content-Type: application/json" -d {} http://localhost:8080/actuator/refresh
