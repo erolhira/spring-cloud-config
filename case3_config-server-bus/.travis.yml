@@ -1,0 +1,31 @@
+language: java
+sudo: required
+services:
+    - docker
+
+install: true
+
+cache:
+   directories:
+      - $HOME/.m2
+
+script:
+    - mvn -q -B -f -DskipTests clean install
+
+after_success:
+    - docker build -t erolhira/config-server
+    - docker push erolhira/config-server
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: "eu-central-1"
+    app: "docker-cloud-config"
+    env: "DockerCloudConfig-env"
+    bucket_name: "elasticbeanstalk-eu-central-1-544214107792"
+    bucket_path: "docker-cloud-config"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    

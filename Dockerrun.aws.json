@@ -1,0 +1,19 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "config-server",
+            "image": "erolhira/config-server",
+            "hostname": "configserver",
+            "essential": true,
+            "memory": 128
+        },
+        {
+            "name": "config-client-1",
+            "image": "erolhira/config-client",
+            "hostname": "configclient1",
+            "essential": false,
+            "memory": 128
+        }
+    ]
+}
