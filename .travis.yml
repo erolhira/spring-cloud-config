@@ -1,0 +1,8 @@
+language: generic
+sudo: required
+services:
+    - docker
+
+before_install:
+    - ./case3_config-server-bus/mvnw clean install    
+    
