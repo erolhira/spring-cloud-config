@@ -10,7 +10,7 @@ cache:
       - $HOME/.m2
 
 script:
-    - ./case3_config-server-bus/mvn clean install
+    - mvn -f ./case3_config-server-bus/pom.xml -DskipTests clean install
 
 
     
